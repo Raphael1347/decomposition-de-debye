@@ -5,9 +5,9 @@ close all
 
 [Val,nbfich]=donnee;
 
-i=6
-for per=-0.1:0.01:0.1
-    R0=(1+per)*Val{i}{2,2}(end);
+
+for i=1:nbfich
+    R0=Val{i}{2,2}(end);
     w=Val{i}{2,1};
     Val{i}{1,11}='mk';
     [Val{i}{2,11},t]=DebyeDecomposition(Val{i}{2,7},Val{i}{2,8},w,R0);
@@ -32,7 +32,7 @@ for per=-0.1:0.01:0.1
     
 plot(Val{i}{2,7},-Val{i}{2,8},'x',Val{i}{2,13},-Val{i}{2,14})
 
-xlabel('Réel')
+xlabel('RÃ©el')
 ylabel('Imaginaire')
 ax = get(fig,'CurrentAxes');
 set(ax,'XScale','linear','YScale','linear') 
@@ -52,7 +52,7 @@ semilogx(w,Amp,'x')
 hold on
 semilogx(w,Amp2)
 
-xlabel('Fréquence angulaire')
+xlabel('FrÃ©quence angulaire')
 ylabel('Amplitude de Z*')
 
 
@@ -65,7 +65,7 @@ loglog(w,-Phase,'x')
 hold on
 loglog(w,-Phase2)
 
-xlabel('Fréquence angulaire')
+xlabel('FrÃ©quence angulaire')
 ylabel('Phase')
 
 end
